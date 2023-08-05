@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="text-center my-5">🚗Vehicles🚗</h1>
+<div class="container d-flex justify-content-center align-items-center">
+    <a class="btn btn-outline-info mb-3" href="{{ url_for('add_vehicle') }}">Add Vehicles</a>
+</div>
+<div class="container">
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Vehicle</th>
+            <th scope="col">Price(INR)</th>
+            <th scope="col">Created on</th>
+        </tr>
+        </thead>
+        {% if not details%}
+        <div class="text-center">
+            <h3 class="my-5">No Records to Display!</h3>
+        </div>
+        {% else %}
+        <tbody>
+        {% for data in details %}
+        <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.name}}</td>
+            <td>₹{{data.price}}</td>
+            <td>{{data.created_at}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}

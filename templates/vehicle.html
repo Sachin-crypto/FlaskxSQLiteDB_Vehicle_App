@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="text-center my-5">🚗Vehicle Details🚗</h1>
+<div class="container">
+    <a class="btn mb-3 btn-outline-info" href="{{ url_for('home') }}">Go to Home</a>
+    <form action="/add-vehicle" method="POST">
+        <div class="mb-3">
+            <label class="form-label" for="vehicle">Vehicle</label>
+            <input class="form-control" id="vehicle" name="vehicle" placeholder="Vehicle name with model and brand"
+                   required type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="price">Price</label>
+            <input class="form-control" id="price" name="price" placeholder="Price of the vehicle in INR"
+                   required type="text">
+        </div>
+        <button class="btn mt-3 btn-outline-success" type="submit">Add Vehicle</button>
+    </form>
+</div>
+
+{% endblock%}
